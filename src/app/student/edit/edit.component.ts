@@ -2,8 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import { Student} from "../student";
-import {StudentService } from "../student.service";
+import { Product} from "../product";
+import {ProductService } from "../product.service";
 import {first} from "rxjs/operators";
 @Component({
   selector: 'app-edit',
@@ -12,39 +12,43 @@ import {first} from "rxjs/operators";
 })
 export class EditComponent implements OnInit {
 
-  student: Student;
+  product: Product;
   editForm: FormGroup;
-  constructor(private formBuilder: FormBuilder,private router: Router, private studentService: StudentService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private productService: ProductService
+  ) { }
 
   ngOnInit() {
-    let studentId = window.localStorage.getItem("editStudentId");
-    if(!studentId) {
+    let productId = window.localStorage.getItem("editProductId");
+    if(!productId) {
       alert("Invalid action.")
       this.router.navigate(['list']);
       return;
     }
     this.editForm = this.formBuilder.group({
       id: [''],
-      first_name: ['', Validators.required],
-      last_name: ['', Validators.required],
-      address: ['', Validators.required]
+      name: ['', Validators.required],
+      type: ['', Validators.required],
+      description: ['', Validators.required]
     });
-    this.studentService.getStudentById(+studentId)
+    this.productService.getProductById(+productId)
       .subscribe( data => {
         this.editForm.setValue(data);
       });
   }
 
   onSubmit() {
-    this.studentService.updateStudent(this.editForm.value)
+    this.productService.updateProduct(this.editForm.value)
       .pipe(first())
       .subscribe(
         data => {
           if(data) {
-            alert('Student updated successfully.');
+            alert('Product updated successfully.');
             this.router.navigate(['list']);
           }else {
-            alert('somthing went to wrong!');
+            alert('Something went wrong!');
           }
         },
         error => {

@@ -1,7 +1,7 @@
 
 <div class="col-md-6 container">
   <h2 style="margin: auto"> Retail Details</h2>
-  <button class="btn btn-primary" (click)="addStudent()">Add Product</button>
+  <button class="btn btn-primary" (click)="addProduct()">Add Product</button>
   <table class="table table-striped">
     <thead>
     <tr>
@@ -18,8 +18,8 @@
       <td>{{ product.name }}</td>
       <td>{{ product.type }}</td>
       <td>{{ product.description }}</td>
-      <td><button class="btn btn-danger" (click)="deleteStudent(product)"> Delete</button>
-        <button class="btn btn-success" (click)="editStudent(product)" style="margin-left: 20px;"> Edit</button></td>
+      <td><button class="btn btn-danger" (click)="deleteProduct(product)"> Delete</button>
+        <button class="btn btn-success" (click)="editProduct(product)" style="margin-left: 20px;"> Edit</button></td>
     </tr>
     </tbody>
   </table>

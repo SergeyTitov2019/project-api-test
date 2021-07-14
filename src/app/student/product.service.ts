@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { Student } from './student';
 import { Product} from "./product";
 import {  Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -8,7 +7,7 @@ import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class StudentService {
+export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
   baseUrl: string = 'http://localhost:3000/products';
@@ -19,26 +18,26 @@ export class StudentService {
     })
   }
 
-  getStudents() : Observable<Product[]> {
+  getProducts() : Observable<Product[]> {
 
     return this.httpClient.get<Product[]>(this.baseUrl);
   }
 
-  getStudentById(id: number): Observable<Student> {
+  getProductById(id: number): Observable<Product> {
     console.log(id);
-    return this.httpClient.get<Student>(this.baseUrl+'/'+ id);
+    return this.httpClient.get<Product>(this.baseUrl+'/'+ id);
   }
 
-  createStudent(student: Student): Observable<Student> {
+  createProduct(product: Product): Observable<Product> {
     console.log('create');
-    return this.httpClient.post<Student>(this.baseUrl, student);
+    return this.httpClient.post<Product>(this.baseUrl, product);
   }
 
-  updateStudent(student: Student): Observable<Student> {
-    return this.httpClient.put<Student>(this.baseUrl+'/'+ student.id, student);
+  updateProduct(product: Product): Observable<Product> {
+    return this.httpClient.put<Product>(this.baseUrl+'/'+ product.id, product);
   }
 
-  deleteStudent(id: number): Observable<Student> {
-    return this.httpClient.delete<Student>(this.baseUrl+'/'+ id);
+  deleteProduct(id: number): Observable<Product> {
+    return this.httpClient.delete<Product>(this.baseUrl+'/'+ id);
   }
 }

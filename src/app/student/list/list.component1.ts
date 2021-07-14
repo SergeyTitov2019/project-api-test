@@ -1,10 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
-
 import {Router} from "@angular/router";
-import { Student} from "../student";
 import {Product} from "../product";
-import {StudentService } from "../student.service";
+import {ProductService } from "../product.service";
 
 @Component({
   selector: 'app-list1',
@@ -13,13 +11,12 @@ import {StudentService } from "../student.service";
 })
 export class ListComponent1 implements OnInit {
 
-  students!: Student[];
   products!: Product[];
 
-  constructor(private router: Router, private studentService: StudentService) { }
+  constructor(private router: Router, private studentService: ProductService) { }
 
   ngOnInit(): void {
-    this.studentService.getStudents()
+    this.studentService.getProducts()
       .subscribe( data => {
         //console.log('data:', data)
         //console.log('data.result:', data.result)
@@ -27,20 +24,20 @@ export class ListComponent1 implements OnInit {
       });
   }
 
-  deleteStudent(product: Product): void {
-    this.studentService.deleteStudent(product.id)
+  deleteProduct(product: Product): void {
+    this.studentService.deleteProduct(product.id)
       .subscribe( data => {
         this.products = this.products.filter(u => u !== product);
       })
   };
 
-  editStudent(product: Product): void {
-    window.localStorage.removeItem("editStudentId");
-    window.localStorage.setItem("editStudentId", product.id.toString());
+  editProduct(product: Product): void {
+    window.localStorage.removeItem("editProductId");
+    window.localStorage.setItem("editProductId", product.id.toString());
     this.router.navigate(['edit']);
   };
 
-  addStudent(): void {
+  addProduct(): void {
     this.router.navigate(['add']);
   };
 
