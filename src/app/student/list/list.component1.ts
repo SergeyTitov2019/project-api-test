@@ -23,20 +23,20 @@ export class ListComponent1 implements OnInit {
       .subscribe( data => {
         //console.log('data:', data)
         //console.log('data.result:', data.result)
-        this.students = data;
+        this.products = data;
       });
   }
 
-  deleteStudent(student: Student): void {
-    this.studentService.deleteStudent(student.id)
+  deleteStudent(product: Product): void {
+    this.studentService.deleteStudent(product.id)
       .subscribe( data => {
-        this.students = this.students.filter(u => u !== student);
+        this.products = this.products.filter(u => u !== product);
       })
   };
 
-  editStudent(student: Student): void {
+  editStudent(product: Product): void {
     window.localStorage.removeItem("editStudentId");
-    window.localStorage.setItem("editStudentId", student.id.toString());
+    window.localStorage.setItem("editStudentId", product.id.toString());
     this.router.navigate(['edit']);
   };
 

@@ -7,7 +7,6 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent1 } from './student/list/list.component1';
-import { ListComponent2 } from './student/list/list.component2';
 import { AddComponent } from './student/add/add.component';
 import { EditComponent } from './student/edit/edit.component';
 
@@ -15,7 +14,6 @@ import { EditComponent } from './student/edit/edit.component';
   declarations: [
     AppComponent,
     ListComponent1,
-    ListComponent2,
     AddComponent,
     EditComponent
   ],

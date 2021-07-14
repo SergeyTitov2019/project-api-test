@@ -13,13 +13,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let student of students">
-      <td>{{ student.id }}</td>
-      <td>{{ student.first_name }}</td>
-      <td>{{ student.last_name }}</td>
-      <td>{{ student.address }}</td>
-      <td><button class="btn btn-danger" (click)="deleteStudent(student)"> Delete</button>
-        <button class="btn btn-success" (click)="editStudent(student)" style="margin-left: 20px;"> Edit</button></td>
+    <tr *ngFor="let product of products">
+      <td>{{ product.id }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.type }}</td>
+      <td>{{ product.description }}</td>
+      <td><button class="btn btn-danger" (click)="deleteStudent(product)"> Delete</button>
+        <button class="btn btn-success" (click)="editStudent(product)" style="margin-left: 20px;"> Edit</button></td>
     </tr>
     </tbody>
   </table>

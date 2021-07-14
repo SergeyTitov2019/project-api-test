@@ -45,5 +45,19 @@
       "last_name": "Moldets",
       "address": "Odessa"
     }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "aaaaaaaaaaaa",
+      "type": "AAAAAAAAAAAAA",
+      "description": "Lorem"
+    },
+    {
+      "id": 2,
+      "name": "bbbbbbbbbb",
+      "type": "BBBBBBBBB",
+      "description": "Lorem"
+    }
   ]
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Student } from './student';
+import { Product} from "./product";
 import {  Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -10,7 +11,7 @@ import { catchError } from 'rxjs/operators';
 export class StudentService {
 
   constructor(private httpClient: HttpClient) { }
-  baseUrl: string = 'http://localhost:3000/students';
+  baseUrl: string = 'http://localhost:3000/products';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -18,9 +19,9 @@ export class StudentService {
     })
   }
 
-  getStudents() : Observable<Student[]> {
+  getStudents() : Observable<Product[]> {
 
-    return this.httpClient.get<Student[]>(this.baseUrl);
+    return this.httpClient.get<Product[]>(this.baseUrl);
   }
 
   getStudentById(id: number): Observable<Student> {
