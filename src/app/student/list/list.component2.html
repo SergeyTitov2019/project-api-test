@@ -1,0 +1,26 @@
+
+<div class="col-md-6 container">
+  <h2 style="margin: auto"> Retail Details</h2>
+  <button class="btn btn-primary" (click)="addProduct()">Add Product</button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Action 2</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{ student.id }}</td>
+      <td>{{ student.first_name }}</td>
+      <td>{{ student.last_name }}</td>
+      <td>{{ student.address }}</td>
+      <td><button class="btn btn-danger" (click)="deleteProduct(student)"> Delete</button>
+        <button class="btn btn-success" (click)="editProduct(student)" style="margin-left: 20px;"> Edit</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
