@@ -18,8 +18,6 @@ export class ListComponent1 implements OnInit {
   ngOnInit(): void {
     this.studentService.getProducts()
       .subscribe( data => {
-        //console.log('data:', data)
-        //console.log('data.result:', data.result)
         this.products = data;
       });
   }

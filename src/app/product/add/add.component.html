@@ -1,5 +1,5 @@
 
-<div class="col-md-6 container">
+<div class="container">
   <h2 class="text-center">Add Product</h2>
   <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
 
@@ -19,4 +19,5 @@
 
     <button class="btn btn-success">Add</button>
   </form>
+  <button class="btn btn-danger" (click)="onBack()">Go Back</button>
 </div>

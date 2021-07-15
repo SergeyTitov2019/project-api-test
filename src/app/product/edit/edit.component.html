@@ -1,6 +1,6 @@
 
-<div class="col-md-6 container">
-  <h2 class="text-center">Edit Student</h2>
+<div class="container">
+  <h2 class="text-center">Edit Product</h2>
   <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
     <div class="hidden">
       <input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
@@ -21,4 +21,6 @@
 
     <button class="btn btn-success">Update</button>
   </form>
+  <button class="btn btn-danger" (click)="onBack()">Go Back</button>
+
 </div>

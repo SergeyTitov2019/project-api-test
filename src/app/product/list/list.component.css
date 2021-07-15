@@ -3,9 +3,14 @@ h2{
   margin-bottom: 10px;
 }
 button{
+  width: 100px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 .container{
   padding-top: 15px;
+}
+
+.action{
+  width: 25%;
 }
