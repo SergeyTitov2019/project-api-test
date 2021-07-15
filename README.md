@@ -4,7 +4,7 @@
 
 ## for satrting project
 #### npm run server
-##### it will launch server on localhost:3000
-##### add /product to see data
+** _it will launch server on localhost:3000_**
+** _add /product to see data_** 
 
 #### npm start
