@@ -6,24 +6,27 @@ import {ProductService } from "../product.service";
 
 @Component({
   selector: 'app-list1',
-  templateUrl: './list.component1.html',
+  templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent1 implements OnInit {
+export class ListComponent implements OnInit {
 
   products!: Product[];
 
-  constructor(private router: Router, private studentService: ProductService) { }
+  constructor(
+    private router: Router,
+    private productService: ProductService
+  ) { }
 
   ngOnInit(): void {
-    this.studentService.getProducts()
+    this.productService.getProducts()
       .subscribe( data => {
         this.products = data;
       });
   }
 
   deleteProduct(product: Product): void {
-    this.studentService.deleteProduct(product.id)
+    this.productService.deleteProduct(product.id)
       .subscribe( data => {
         this.products = this.products.filter(u => u !== product);
       })
