@@ -1,4 +1,3 @@
-
 <div class="container">
   <h2 class="text-center">Edit Product</h2>
   <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
@@ -12,11 +11,25 @@
 
     <div class="form-group">
       <label for="type">Type:</label>
-      <input formControlName="type" placeholder="Type" name="type" class="form-control" id="type">
+      <select formControlName="type" name="type" class="form-control" id="type">
+        <option value="Холодильник">Холодильник</option>
+        <option value="Микроволновая печь">Микроволновая печь</option>
+        <option value="Посудомоечная машина">Посудомоечная машина</option>
+        <option value="Телевизор">Телевизор</option>
+        <option value="Варочная поверхность">Варочная поверхность</option>
+        <option value="Стиральная машина">Стиральная машина</option>
+      </select>
+      <div>
+        <small>
+          Нужно выбрать тип
+        </small>
+      </div>
     </div>
+
     <div class="form-group">
       <label for="description">Description:</label>
-      <input formControlName="description" placeholder="Description" name="description" class="form-control" id="description">
+      <input formControlName="description" placeholder="Description" name="description" class="form-control"
+             id="description">
     </div>
 
     <button class="btn btn-success">Update</button>

@@ -9,23 +9,24 @@ import { catchError } from 'rxjs/operators';
 })
 export class ProductService {
 
-  constructor(private httpClient: HttpClient) { }
-  baseUrl: string = 'http://localhost:3000/products';
+  private baseUrl: string = 'http://localhost:3000/products';
 
-  httpOptions = {
+  private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   }
 
-  getProducts() : Observable<Product[]> {
+  constructor(private readonly httpClient: HttpClient) { }
 
+  getProducts() : Observable<Product[]> {
     return this.httpClient.get<Product[]>(this.baseUrl);
   }
 
   getProductById(id: number): Observable<Product> {
-    console.log(id);
-    return this.httpClient.get<Product>(this.baseUrl+'/'+ id);
+    console.log('id:', id);
+    // return this.httpClient.get<Product>(this.baseUrl+'/'+ id);
+    return this.httpClient.get<Product>(`${this.baseUrl}/${id}`);
   }
 
   createProduct(product: Product): Observable<Product> {
@@ -34,10 +35,12 @@ export class ProductService {
   }
 
   updateProduct(product: Product): Observable<Product> {
-    return this.httpClient.put<Product>(this.baseUrl+'/'+ product.id, product);
+    // return this.httpClient.put<Product>(this.baseUrl+'/'+ product.id, product);
+    return this.httpClient.put<Product>(`${this.baseUrl}/${product.id}`, product);
   }
 
   deleteProduct(id: number): Observable<Product> {
-    return this.httpClient.delete<Product>(this.baseUrl+'/'+ id);
+    // return this.httpClient.delete<Product>(this.baseUrl+'/'+ id);
+    return this.httpClient.delete<Product>(`${this.baseUrl}/${id}`);
   }
 }

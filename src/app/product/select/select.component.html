@@ -1,0 +1,6 @@
+<div class="form-group">
+  <label for="type">Type:</label>
+  <select [(ngModel)]="selectedValue" formControlName="type" name="type" class="form-control" id="type">
+    <option *ngFor="let c of types" value="c.id">{{c.name}}</option>
+  </select>
+</div>

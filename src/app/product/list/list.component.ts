@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {Product} from "../product";
@@ -7,15 +6,15 @@ import {ProductService } from "../product.service";
 @Component({
   selector: 'app-list1',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
 
   products!: Product[];
 
   constructor(
-    private router: Router,
-    private productService: ProductService
+    private readonly router: Router,
+    private readonly productService: ProductService,
   ) { }
 
   ngOnInit(): void {
@@ -33,10 +32,15 @@ export class ListComponent implements OnInit {
   };
 
   editProduct(product: Product): void {
-    window.localStorage.removeItem("editProductId");
-    window.localStorage.setItem("editProductId", product.id.toString());
-    this.router.navigate(['edit']);
+    console.log('edit:', product.id)
+    this.router.navigate(['edit/', product.id.toString()]);
   };
+
+  // editProduct(product: Product): void {
+  //   window.localStorage.removeItem("editProductId");
+  //   window.localStorage.setItem("editProductId", product.id.toString());
+  //   this.router.navigate(['edit']);
+  // };
 
   addProduct(): void {
     this.router.navigate(['add']);
