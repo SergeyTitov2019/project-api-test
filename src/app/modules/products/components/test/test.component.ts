@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router, RouterState} from "@angular/router";
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {ProductService} from "../../services/product.service";
 import {ProductInterface} from "../../interfeses/product.interface";
@@ -12,12 +12,13 @@ import {first} from "rxjs/operators";
 })
 export class TestComponent implements OnInit {
 
-  addForm!: FormGroup;
-  editForm: FormGroup;
+  form!: FormGroup;
+  // editForm: FormGroup;
   product: ProductInterface;
   productTitle: string;
   buttonTitle: string;
   option: boolean = true;
+  isNewObject: boolean = true
 
   constructor(
     private router: Router,
@@ -32,7 +33,7 @@ export class TestComponent implements OnInit {
     let productId = this.route.snapshot.paramMap.get('id');
     console.log('productId:', productId)
 
-    this.editForm = this.formBuilder.group({
+    this.form = this.formBuilder.group({
       id: [''],
       name: ['', Validators.required],
       type: ['', Validators.required],
@@ -42,35 +43,46 @@ export class TestComponent implements OnInit {
     this.buttonTitle = "Add"
 
     if (productId) {
+      this.isNewObject = false;
       this.productService.getProductById(+productId)
         .subscribe(data => {
-          this.editForm.setValue(data);
+          this.form.setValue(data);
         });
       this.productTitle = "Edit Product"
       this.buttonTitle = "Update"
+    } else{
+      this.isNewObject = true;
     }
   }
 
   onSubmit(): void {
-    this.productService.updateProduct(this.editForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          if (data) {
-            alert('ProductInterface updated successfully.');
-            this.router.navigate(['list']);
-          } else {
-            alert('Something went wrong!');
-          }
-        },
-        error => {
-          alert(error);
+    if(this.isNewObject){
+
+      this.productService.createProduct(this.form.value)
+        .subscribe(data => {
+          this.router.navigate(['list']);
         });
+
+    } else {
+      this.productService.updateProduct(this.form.value)
+        .pipe(first())
+        .subscribe(
+          data => {
+            if (data) {
+              alert('ProductInterface updated successfully.');
+              this.router.navigate(['list']);
+            } else {
+              alert('Something went wrong!');
+            }
+          },
+          error => {
+            alert(error);
+          });
+    } return
   }
 
   onBack() {
     this.router.navigate(['list']);
   }
-
 }
 

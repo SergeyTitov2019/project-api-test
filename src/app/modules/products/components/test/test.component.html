@@ -1,6 +1,6 @@
 <div class="container">
   <h2 class="text-center">{{productTitle}}</h2>
-  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="hidden">
       <input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
     </div>
@@ -32,7 +32,7 @@
              id="description">
     </div>
 
-    <button class="btn btn-success">{{buttonTitle}}</button>
+    <button class="btn btn-success" (click)="onSubmit()">{{buttonTitle}}</button>
   </form>
   <button class="btn btn-danger" (click)="onBack()">Go Back</button>
 

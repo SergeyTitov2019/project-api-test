@@ -43,10 +43,34 @@
       "description": "Духовка Gorenje K5351 повторяет конструкцию стандартной дровяной печи, благодаря чему воздух свободно циркулирует по всей внутренней части. Таким образом, блюдо эффективно готовится со всех сторон, а также становится сочным и хрустящим. Вместе с тем современная технология MultiAir равномерно распределяет жар по всей духовке, благодаря чему вы можете активно готовить на всех уровнях."
     },
     {
-      "id": 9,
-      "name": "пваава",
+      "id": 12,
+      "name": "yytuytutuytuyt",
+      "type": "Стиральная машина",
+      "description": "tytyutuyttttttttttttttttttttttttttttttttttttu"
+    },
+    {
+      "id": 13,
+      "name": "ffffffffffffffffffffffff",
+      "type": "Посудомоечная машина",
+      "description": "ggggggggggggggggggggggggg"
+    },
+    {
+      "id": 14,
+      "name": "ffffffffffffffffffffffff555555555555555555555555",
       "type": "Холодильник",
-      "description": "ававпвап"
+      "description": "ggggggggggggggggggggggggg"
+    },
+    {
+      "id": 15,
+      "name": "ghhfh",
+      "type": "Холодильник",
+      "description": "555555555555555555555"
+    },
+    {
+      "id": 16,
+      "name": "ghhfh",
+      "type": "Холодильник",
+      "description": "555555555555555555555"
     }
   ]
 }

@@ -62,9 +62,7 @@ export class EditComponent implements OnInit {
         });
   }
 
-
   onBack() {
     this.router.navigate(['list']);
   }
-
 }
