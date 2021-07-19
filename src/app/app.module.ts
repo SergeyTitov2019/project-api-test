@@ -5,10 +5,10 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListComponent } from './product/list/list.component';
-import { AddComponent } from './product/add/add.component';
-import { EditComponent } from './product/edit/edit.component';
-import {SelectComponent} from "./product/select/select.component";
+import { ListComponent } from './modules/products/components/list/list.component';
+import { AddComponent } from './modules/products/components/add/add.component';
+import { EditComponent } from './modules/products/components/edit/edit.component';
+import {SelectComponent} from "./modules/products/components/select/select.component";
 
 @NgModule({
   declarations: [

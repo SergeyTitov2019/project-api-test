@@ -1,12 +1,14 @@
 <div class="container">
-  <h2 class="text-center">Edit Product</h2>
-  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-    <div class="hidden">
-      <input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
-    </div>
+  <h2 class="text-center">Add ProductInterface</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()" name="my-form">
     <div class="form-group">
       <label for="name">Name:</label>
       <input formControlName="name" placeholder="Name" name="name" class="form-control" id="name">
+      <div class="validation">
+        <small *ngIf="addForm.controls['name'].hasError('required')" >
+          Поле не может быть пустым
+        </small>
+      </div>
     </div>
 
     <div class="form-group">
@@ -20,20 +22,24 @@
         <option value="Стиральная машина">Стиральная машина</option>
       </select>
       <div>
-        <small>
-          Нужно выбрать тип
+        <small *ngIf="type.errors?.required" >
+          Тип необходимо выбрать
         </small>
       </div>
     </div>
 
     <div class="form-group">
       <label for="description">Description:</label>
-      <input formControlName="description" placeholder="Description" name="description" class="form-control"
+      <input formControlName="description" placeholder="Description" name="escription" class="form-control"
              id="description">
+      <div>
+        <small *ngIf="description.errors?.required">
+          Поле не может быть пустым
+        </small>
+      </div>
     </div>
-
-    <button class="btn btn-success">Update</button>
+    <button class="btn btn-success" [disabled]="addForm.invalid">Add</button>
   </form>
   <button class="btn btn-danger" (click)="onBack()">Go Back</button>
-
+  <select-component></select-component>
 </div>

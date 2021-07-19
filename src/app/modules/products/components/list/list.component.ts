@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {Product} from "../product";
-import {ProductService } from "../product.service";
+import {ProductInterface} from "../../interfeses/product.interface.";
+import {ProductService } from "../../services/product.service";
 
 @Component({
   selector: 'app-list1',
@@ -10,7 +10,7 @@ import {ProductService } from "../product.service";
 })
 export class ListComponent implements OnInit {
 
-  products!: Product[];
+  products!: ProductInterface[];
 
   constructor(
     private readonly router: Router,
@@ -24,19 +24,19 @@ export class ListComponent implements OnInit {
       });
   }
 
-  deleteProduct(product: Product): void {
+  deleteProduct(product: ProductInterface): void {
     this.productService.deleteProduct(product.id)
       .subscribe( data => {
         this.products = this.products.filter(u => u !== product);
       })
   };
 
-  editProduct(product: Product): void {
+  editProduct(product: ProductInterface): void {
     console.log('edit:', product.id)
     this.router.navigate(['edit/', product.id.toString()]);
   };
 
-  // editProduct(product: Product): void {
+  // editProduct(product: ProductInterface): void {
   //   window.localStorage.removeItem("editProductId");
   //   window.localStorage.setItem("editProductId", product.id.toString());
   //   this.router.navigate(['edit']);

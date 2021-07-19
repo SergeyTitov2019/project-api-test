@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {Router} from "@angular/router";
-import {ProductService} from "../product.service";
+import {ProductService} from "../../services/product.service";
 
 @Component({
   selector: 'app-add',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import { Product} from "../product";
-import {ProductService } from "../product.service";
+import { ProductInterface} from "../../interfeses/product.interface.";
+import {ProductService } from "../../services/product.service";
 import {first} from "rxjs/operators";
 import { ActivatedRoute } from '@angular/router'
 
@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router'
 
 export class EditComponent implements OnInit {
 
-  product: Product;
+  product: ProductInterface;
   editForm: FormGroup;
 
   constructor(
@@ -51,7 +51,7 @@ export class EditComponent implements OnInit {
       .subscribe(
         data => {
           if(data) {
-            alert('Product updated successfully.');
+            alert('ProductInterface updated successfully.');
             this.router.navigate(['list']);
           }else {
             alert('Something went wrong!');

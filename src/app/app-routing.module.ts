@@ -2,9 +2,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {AddComponent} from "./product/add/add.component";
-import {ListComponent} from "./product/list/list.component";
-import {EditComponent} from "./product/edit/edit.component";
+import {AddComponent} from "./modules/products/components/add/add.component";
+import {ListComponent} from "./modules/products/components/list/list.component";
+import {EditComponent} from "./modules/products/components/edit/edit.component";
 
 const routes: Routes = [
   { path: 'add', component: AddComponent },
