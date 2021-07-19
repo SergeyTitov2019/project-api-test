@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {ProductInterface} from "../../interfeses/product.interface.";
+import {ProductInterface} from "../../interfeses/product.interface";
 import {ProductService } from "../../services/product.service";
 
 @Component({
@@ -32,18 +32,16 @@ export class ListComponent implements OnInit {
   };
 
   editProduct(product: ProductInterface): void {
-    console.log('edit:', product.id)
+    // console.log('edit:', product.id)
     this.router.navigate(['edit/', product.id.toString()]);
   };
 
-  // editProduct(product: ProductInterface): void {
-  //   window.localStorage.removeItem("editProductId");
-  //   window.localStorage.setItem("editProductId", product.id.toString());
-  //   this.router.navigate(['edit']);
-  // };
 
   addProduct(): void {
     this.router.navigate(['add']);
   };
 
+  // addTest(): void {
+  //   this.router.navigate(['test']);
+  // };
 }

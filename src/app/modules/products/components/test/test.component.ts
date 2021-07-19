@@ -1,48 +1,54 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
-import { ProductInterface} from "../../interfeses/product.interface";
-import {ProductService } from "../../services/product.service";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
+import {ProductService} from "../../services/product.service";
+import {ProductInterface} from "../../interfeses/product.interface";
 import {first} from "rxjs/operators";
-import { ActivatedRoute } from '@angular/router'
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.css']
 })
+export class TestComponent implements OnInit {
 
-export class EditComponent implements OnInit {
-
-  product: ProductInterface;
+  addForm!: FormGroup;
   editForm: FormGroup;
+  product: ProductInterface;
+  productTitle: string;
+  buttonTitle: string;
+  option: boolean = true;
 
   constructor(
-    private formBuilder: FormBuilder,
     private router: Router,
+    private formBuilder: FormBuilder,
     private productService: ProductService,
     private route: ActivatedRoute,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     console.log('product:', this.product)
     let productId = this.route.snapshot.paramMap.get('id');
     console.log('productId:', productId)
-    if(!productId) {
-      alert("Invalid action.")
-      this.router.navigate(['list']);
-      return;
-    }
+
     this.editForm = this.formBuilder.group({
       id: [''],
       name: ['', Validators.required],
       type: ['', Validators.required],
       description: ['', Validators.required]
     });
-    this.productService.getProductById(+productId)
-      .subscribe( data => {
-        this.editForm.setValue(data);
-      });
+    this.productTitle = "Add Product"
+    this.buttonTitle = "Add"
+
+    if (productId) {
+      this.productService.getProductById(+productId)
+        .subscribe(data => {
+          this.editForm.setValue(data);
+        });
+      this.productTitle = "Edit Product"
+      this.buttonTitle = "Update"
+    }
   }
 
   onSubmit(): void {
@@ -50,10 +56,10 @@ export class EditComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          if(data) {
+          if (data) {
             alert('ProductInterface updated successfully.');
             this.router.navigate(['list']);
-          }else {
+          } else {
             alert('Something went wrong!');
           }
         },
@@ -62,9 +68,9 @@ export class EditComponent implements OnInit {
         });
   }
 
-
   onBack() {
     this.router.navigate(['list']);
   }
 
 }
+

@@ -9,6 +9,7 @@ import { ListComponent } from './modules/products/components/list/list.component
 import { AddComponent } from './modules/products/components/add/add.component';
 import { EditComponent } from './modules/products/components/edit/edit.component';
 import {SelectComponent} from "./modules/products/components/select/select.component";
+import {TestComponent} from "./modules/products/components/test/test.component";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {SelectComponent} from "./modules/products/components/select/select.compo
     ListComponent,
     AddComponent,
     EditComponent,
-    SelectComponent
+    SelectComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
