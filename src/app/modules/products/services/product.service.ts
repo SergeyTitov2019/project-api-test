@@ -29,7 +29,7 @@ export class ProductService {
   }
 
   createProduct(product: ProductInterface): Observable<ProductInterface> {
-    console.log('create');
+    console.log('create product:', product);
     return this.httpClient.post<ProductInterface>(this.baseUrl, product);
   }
 

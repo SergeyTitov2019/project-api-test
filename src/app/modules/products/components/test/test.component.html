@@ -1,14 +1,33 @@
 <div class="container">
   <h2 class="text-center">{{productTitle}}</h2>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form [formGroup]="form">
+
     <div class="hidden">
       <input type="text" formControlName="id" placeholder="id" name="id" class="form-control" id="id">
     </div>
     <div class="form-group">
       <label for="name">Name:</label>
-      <input formControlName="name" placeholder="Name" name="name" class="form-control" id="name">
+      <input formControlName="name" placeholder="Name" name="name" class="form-control" id="name"
+             [class.valid]="form.get('name')?.valid && (form.get('name')?.dirty || form.get('name')?.touched)"
+             [class.invalid]="form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)"
+      >
+        <div *ngIf="form.get('name')?.invalid &&
+               form.get('name')?.errors &&
+               (form.get('name')?.dirty || form.get('name')?.touched)">
+          <small class="text-danger"
+                 *ngIf="form.get('name')?.hasError('required')">
+            This field is required.
+          </small>
+          <small class="text-danger"
+                 *ngIf="form.get('name')?.hasError('minlength')">
+            The minimum length for this field is {{form.get('name')?.errors?.minlength.requiredLength}} characters.
+          </small>
+          <small class="text-danger"
+                 *ngIf="form.get('name')?.hasError('maxlength')">
+            The maximum length for this field is {{form.get('name')?.errors?.form.requiredLength}} characters.
+          </small>
+        </div>
     </div>
-
     <div class="form-group">
       <label for="type">Type:</label>
       <select formControlName="type" name="type" class="form-control" id="type">
@@ -19,22 +38,38 @@
         <option value="Варочная поверхность">Варочная поверхность</option>
         <option value="Стиральная машина">Стиральная машина</option>
       </select>
-      <div>
-        <small>
-          Нужно выбрать тип
+
+      <div *ngIf="form.get('type')?.invalid &&
+               form.get('type')?.errors &&
+               (form.get('type')?.dirty || form.get('type')?.touched)">
+        <small class="text-danger"
+               *ngIf="form.get('type')?.hasError('required')">
+          This field is required.
         </small>
       </div>
     </div>
 
     <div class="form-group">
       <label for="description">Description:</label>
-      <input formControlName="description" placeholder="Description" name="description" class="form-control"
-             id="description">
+      <input formControlName="description" placeholder="Description" name="description" class="form-control" id="description"
+             [class.valid]="form.get('description')?.valid && (form.get('description')?.dirty || form.get('description')?.touched)"
+             [class.invalid]="form.get('description')?.invalid && (form.get('description')?.dirty || form.get('description')?.touched)"
+      >
+      <div *ngIf="form.get('description')?.invalid && form.get('description')?.errors && (form.get('description')?.dirty || form.get('description')?.touched)">
+        <small class="text-danger" *ngIf="form.get('name')?.hasError('required')">
+          This field is required.
+        </small>
+        <small class="text-danger" *ngIf="form.get('description')?.hasError('minlength')">
+          The minimum length for this field is {{form.get('description')?.errors?.minlength.requiredLength}} characters.
+        </small>
+        <small class="text-danger"
+               *ngIf="form.get('description')?.hasError('maxlength')">
+          The maximum length for this field is {{form.get('description')?.errors?.form.requiredLength}} characters.
+        </small>
+      </div>
     </div>
-
     <button class="btn btn-success" (click)="onSubmit()">{{buttonTitle}}</button>
   </form>
   <button class="btn btn-danger" (click)="onBack()">Go Back</button>
-
 </div>
 

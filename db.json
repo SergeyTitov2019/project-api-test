@@ -43,34 +43,40 @@
       "description": "Духовка Gorenje K5351 повторяет конструкцию стандартной дровяной печи, благодаря чему воздух свободно циркулирует по всей внутренней части. Таким образом, блюдо эффективно готовится со всех сторон, а также становится сочным и хрустящим. Вместе с тем современная технология MultiAir равномерно распределяет жар по всей духовке, благодаря чему вы можете активно готовить на всех уровнях."
     },
     {
+      "id": 9,
+      "name": "2222222222222222",
+      "type": "Холодильник",
+      "description": ""
+    },
+    {
+      "id": 10,
+      "name": "5555555555555",
+      "type": "Микроволновая печь",
+      "description": ""
+    },
+    {
+      "id": 11,
+      "name": "2",
+      "type": "Микроволновая печь",
+      "description": "2"
+    },
+    {
       "id": 12,
-      "name": "yytuytutuytuyt",
-      "type": "Стиральная машина",
-      "description": "tytyutuyttttttttttttttttttttttttttttttttttttu"
+      "name": "55",
+      "type": "Холодильник",
+      "description": ""
     },
     {
       "id": 13,
-      "name": "ffffffffffffffffffffffff",
-      "type": "Посудомоечная машина",
-      "description": "ggggggggggggggggggggggggg"
+      "name": "dfsdfsdfsdfsdd",
+      "type": "",
+      "description": "dsdsdfsdfsdf 25552525525"
     },
     {
       "id": 14,
-      "name": "ffffffffffffffffffffffff555555555555555555555555",
+      "name": "52525252525",
       "type": "Холодильник",
-      "description": "ggggggggggggggggggggggggg"
-    },
-    {
-      "id": 15,
-      "name": "ghhfh",
-      "type": "Холодильник",
-      "description": "555555555555555555555"
-    },
-    {
-      "id": 16,
-      "name": "ghhfh",
-      "type": "Холодильник",
-      "description": "555555555555555555555"
+      "description": "5525525252525"
     }
   ]
 }

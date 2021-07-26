@@ -35,9 +35,9 @@ export class TestComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       id: [''],
-      name: ['', Validators.required],
-      type: ['', Validators.required],
-      description: ['', Validators.required]
+      name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
+      type: ['', [Validators.required]],
+      description: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]]
     });
     this.productTitle = "Add Product"
     this.buttonTitle = "Add"

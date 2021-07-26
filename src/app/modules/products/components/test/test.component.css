@@ -3,3 +3,77 @@ button{
   width: 100px;
 
 }
+
+
+
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+input.ng-valid {
+  border: 1px solid green;
+}
+
+
+
+/*input.ng-invalid.ng-touched {*/
+/*  border: 1px solid red;*/
+/*}*/
+
+/*input.ng-valid {*/
+/*  border: 1px solid green;*/
+/*}*/
+
+input.valid {
+  border: 1px solid green;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+input.invalid{
+  border: 1px solid #d41727;
+  color: #820000;
+}
+
+.valid{
+  border: 1px solid #13880a;
+  color: gray;
+}
+
+
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+small  {
+  color: #e92323;
+ }
+
+.ng-touched small  {
+  display: inline-block;
+}
+
+
+.alert div {
+  background-color: #fed3d3;
+  color: #820000;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+select {
+  width: 100%;
+  padding: .5rem;
+}
+
